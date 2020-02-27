@@ -10,8 +10,25 @@ import {
 import Home from "./pages/home/index";
 // 引入地图搜索
 import MapCity from "./pages/mapCity";
+// 引进localCityAction
+import {localCityAction} from './store/actionCreator/index';
+// 引进connect
+import {connect} from 'react-redux'
+
+// 第二遍测试
+// import {LocalCity} from './utils/mapHelper'
 
 class App extends Component {
+  componentDidMount(){
+    // 获取当前定位
+        
+        // 第二遍测试
+        // LocalCity()
+        // .then(res=>{
+        //   console.log(res)
+        // })
+        this.props.handleInitCity();
+  }
   render() {
     return (
       <Fragment>
@@ -31,5 +48,14 @@ class App extends Component {
     );
   }
 }
+// 事件的映射
+const mapDispatchTOProps = (dispatch)=>{
+  return{
+    handleInitCity(){
+      // localCityAction是一个函数
+      dispatch(localCityAction())
+    }
+  }
 
-export default App;
+}
+export default connect(null,mapDispatchTOProps)(App) ;

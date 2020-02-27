@@ -1,0 +1,131 @@
+// 顶部导航
+.navtap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  .navtapItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .navPic {
+      width: 50%;
+      margin: 10px 0;
+    }
+
+    .navTitle {
+      margin-bottom: 10px;
+    }
+  }
+}
+// 租客小组
+.RentGroud {
+  padding: 0 10px;
+  .RentTitle {
+    display: flex;
+    height: 47px;
+    justify-content: space-between;
+    align-items: center;
+    h3 {
+      margin-left: 10px;
+      font-size: 15px;
+      color: #000;
+    }
+
+    //   a {
+
+    //   }
+  }
+
+  .flooList {
+    display: flex;
+    flex-wrap: wrap;
+    .floorItem {
+      flex: 50% 0 0;
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 95px;
+      border-bottom: 10px solid #f6f5f6;
+      padding-bottom: 10px;
+      &:nth-child(2n-1) {
+        border-right: 10px solid #f6f5f6;
+      }
+      .floorItem_L {
+        margin-right: 20px;
+        h4 {
+          font-size: 15px;
+          color: #000;
+          margin-bottom: 5px;
+        }
+
+        //   p {
+
+        //   }
+      }
+
+      .floorItem_R {
+        img {
+          width: 55px;
+        }
+      }
+    }
+  }
+}
+// 最新资讯
+.newistMsg {
+  background-color: #fff;
+  padding: 20px;
+  padding-bottom: 0px;
+  h3 {
+    margin-bottom: 10px;
+    color: #000;
+    font-size: 15px;
+  }
+
+  .newistContent {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 2px solid #f6f5f6;
+    .newistPic {
+      margin-right: 10px;
+      img {
+        width: 120px;
+        height: 90px;
+      }
+    }
+    .contentRight {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-right: 10px;
+      .title {
+        font-size: 14px;
+        color: #000;
+        font-weight: 800;
+      }
+
+      .sorts {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        span {
+          color: #b6abc2;
+        }
+      }
+    }
+  }
+}
+// 搜索框
+.swiper {
+  position: relative;
+  .searchInput {
+    position: absolute;
+    top: 25px;
+    right: 0;
+    z-index: 999;
+    width: 100%;
+  }
+}

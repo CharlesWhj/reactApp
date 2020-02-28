@@ -3,7 +3,10 @@ import React, { Fragment, Component } from "react";
 // 引入组件局部样式
 import InputCss from "./index.module.scss";
 
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
+
+// 引进withRouter给没有路由的子组件配置路由
+import {withRouter} from 'react-router-dom'
 
 class CityInput extends Component {
   render() {
@@ -11,7 +14,9 @@ class CityInput extends Component {
       <Fragment>
         <div className={InputCss.inputSearch}>
           <div className={InputCss.CityInput}>
-            <div className={InputCss.city}>
+            <div className={InputCss.city} onClick={()=>{
+              this.props.history.push('/citySearch')
+            }}>
               <span>{this.props.cityName}</span>
               <i className={InputCss["icon-arrow"] + ' iconfont icon-arrow'}></i>
             </div>
@@ -35,4 +40,4 @@ const mapStoreToProps=(state)=>{
         cityName:state.mapReducer.city.name
     }
 }
-export default connect(mapStoreToProps,null)(CityInput);
+export default withRouter(connect(mapStoreToProps,null)(CityInput));

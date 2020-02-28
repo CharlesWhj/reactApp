@@ -1,6 +1,7 @@
 import React, { Fragment, Component } from "react";
-// 引进请求
-import axios from "axios";
+// 引进封装好的请求
+// import axios from "axios";
+import axios,{BaseUrl} from '../../../utils/request'
 // 引进轮播图
 import { Carousel } from "antd-mobile";
 // 引进局部样式
@@ -50,7 +51,7 @@ class Index extends Component {
   }
   // 获取轮播图数据
   getSwiperList = () => {
-    axios.get("http://157.122.54.189:9060/home/swiper").then(res => {
+    axios.get("/home/swiper").then(res => {
       // 把数据存到起来
       this.setState({
         swiperList: res.data.body
@@ -59,7 +60,7 @@ class Index extends Component {
   };
   // 获取租房小组数据
   getrendList = () => {
-    axios.get("http://157.122.54.189:9060/home/groups").then(res => {
+    axios.get("/home/groups").then(res => {
       // 把数据存到起来
       this.setState({
         rendList: res.data.body
@@ -69,7 +70,7 @@ class Index extends Component {
   };
   // 获取最新资讯数据
   getnewsList = () => {
-    axios.get("http://157.122.54.189:9060/home/news").then(res => {
+    axios.get("/home/news").then(res => {
       // 把数据存到起来
       this.setState({
         newsList: res.data.body
@@ -100,7 +101,7 @@ class Index extends Component {
                   }}
                 >
                   <img
-                    src={"http://157.122.54.189:9060" + val.imgSrc}
+                    src={BaseUrl + val.imgSrc}
                     alt=""
                     style={{ width: "100%", verticalAlign: "top" }}
                     onLoad={() => {
@@ -140,7 +141,7 @@ class Index extends Component {
                   <p>{v.desc}</p>
                 </div>
                 <div className={Indexcss.floorItem_R}>
-                  <img src={"http://157.122.54.189:9060" + v.imgSrc}></img>
+                  <img src={BaseUrl + v.imgSrc}></img>
                 </div>
               </div>
             ))}
@@ -153,7 +154,7 @@ class Index extends Component {
           {this.state.newsList.map(v=>(
             <div className={Indexcss.newistContent} key={v.id}>
             <div className={Indexcss.newistPic}>
-              <img src={"http://157.122.54.189:9060" + v.imgSrc}></img>
+              <img src={BaseUrl + v.imgSrc}></img>
             </div>
             <div className={Indexcss.contentRight}>
               <div className={Indexcss.title}>
